@@ -3,131 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEET Toppers Store</title>
+<title>NEET Premium Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    padding:0;
-    background:#f4f4f4;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{background:#f4f6fb;transition:0.4s;}
+.dark{background:#121212;color:white;}
 
 header{
-    background:#2c3e50;
-    color:white;
-    padding:20px;
-    text-align:center;
+background:linear-gradient(135deg,#00c853,#009624);
+color:white;text-align:center;padding:30px;
 }
 
-.container{
-    width:90%;
-    max-width:1000px;
-    margin:20px auto;
+.toggle{
+position:absolute;right:20px;top:20px;
+background:white;color:black;padding:6px 12px;
+border-radius:20px;cursor:pointer;font-size:12px;
 }
+
+.container{width:90%;max-width:1100px;margin:40px auto;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
 
 .card{
-    background:white;
-    margin-bottom:20px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    overflow:hidden;
+background:white;border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+overflow:hidden;transition:0.3s;
 }
 
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
+.dark .card{background:#1e1e1e;}
 
-.card-body{
-    padding:15px;
-}
+.card:hover{transform:translateY(-8px);}
 
-.price{
-    color:green;
-    font-weight:bold;
-    margin:10px 0;
+.card img{width:100%;height:220px;object-fit:cover;}
+
+.card-body{padding:18px;}
+.card h3{margin-bottom:8px;}
+
+.price{color:#00c853;font-weight:700;margin-bottom:10px;}
+
+.badge{
+background:#ff3d00;color:white;font-size:12px;
+padding:4px 8px;border-radius:20px;display:inline-block;margin-bottom:10px;
 }
 
 .btn{
-    display:block;
-    text-align:center;
-    padding:12px;
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-    font-weight:bold;
+display:block;text-align:center;
+background:#25D366;color:white;
+padding:12px;border-radius:8px;
+text-decoration:none;font-weight:600;
+margin-top:10px;
 }
 
-.btn:hover{
-    background:#128C7E;
+.btn:hover{background:#128C7E;}
+
+.checkout{
+background:#00695c;color:white;
 }
+
+.review-section{
+margin-top:60px;
+}
+
+.review{
+background:white;padding:15px;border-radius:10px;
+margin-bottom:15px;box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.dark .review{background:#1e1e1e;}
 
 footer{
-    background:#2c3e50;
-    color:white;
-    text-align:center;
-    padding:15px;
-    margin-top:30px;
+text-align:center;padding:20px;
+background:#111;color:white;margin-top:40px;
 }
+
+/* Floating WhatsApp */
+.float{
+position:fixed;width:60px;height:60px;
+bottom:20px;right:20px;background:#25D366;
+border-radius:50%;text-align:center;
+box-shadow:2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.float img{width:35px;margin-top:12px;}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>📚 NEET Toppers Store</h1>
-<p>Best Quality Used Books & Handwritten Notes</p>
+<h1>📚 NEET Premium Store</h1>
+<p>Topper Notes | Affordable Prices | Pan India Delivery</p>
+<div class="toggle" onclick="toggleDark()">Dark Mode</div>
 </header>
 
 <div class="container">
+<div class="grid">
 
-<!-- HC Verma -->
 <div class="card">
-<img src="https://via.placeholder.com/300x200?text=HC+Verma" alt="HC Verma">
+<img src="https://via.placeholder.com/400x300?text=HC+Verma">
 <div class="card-body">
+<span class="badge">Best Seller</span>
 <h3>HC Verma (Part 1 & 2)</h3>
 <div class="price">₹450</div>
-<p>Condition: 8/10, No highlights</p>
-<a href="https://api.whatsapp.com/send?phone=918840001437&text=Hello%20I%20want%20to%20buy%20HC%20Verma" class="btn">
-Order on WhatsApp
-</a>
+<a href="https://api.whatsapp.com/send?phone=918840001437&text=Hello%20I%20want%20to%20buy%20HC%20Verma" class="btn">Order on WhatsApp</a>
+<a href="#" class="btn checkout">Buy Now</a>
 </div>
 </div>
 
-<!-- Chemistry Notes -->
 <div class="card">
-<img src="https://via.placeholder.com/300x200?text=Chemistry+Notes" alt="Chemistry Notes">
+<img src="https://via.placeholder.com/400x300?text=Chemistry+Notes">
 <div class="card-body">
+<span class="badge">Limited Stock</span>
 <h3>Organic Chemistry Notes</h3>
 <div class="price">₹200</div>
-<p>Handwritten, Topper's copy</p>
-<a href="https://api.whatsapp.com/send?phone=918840001437&text=Hello%20I%20want%20to%20buy%20Chemistry%20Notes" class="btn">
-Order on WhatsApp
-</a>
+<a href="https://api.whatsapp.com/send?phone=918840001437&text=Hello%20I%20want%20to%20buy%20Chemistry%20Notes" class="btn">Order on WhatsApp</a>
+<a href="#" class="btn checkout">Buy Now</a>
 </div>
 </div>
 
-<!-- Biology NCERT -->
 <div class="card">
-<img src="https://via.placeholder.com/300x200?text=Biology+NCERT" alt="Biology NCERT">
+<img src="https://via.placeholder.com/400x300?text=Biology+NCERT">
 <div class="card-body">
-<h3>Biology NCERT (Class 11 & 12)</h3>
+<span class="badge">Hot Deal</span>
+<h3>Biology NCERT (11 & 12)</h3>
 <div class="price">₹300</div>
-<p>With sticky notes</p>
-<a href="https://api.whatsapp.com/send?phone=918840001437&text=Hello%20I%20want%20to%20buy%20Biology%20NCERT" class="btn">
-Order on WhatsApp
-</a>
+<a href="https://api.whatsapp.com/send?phone=918840001437&text=Hello%20I%20want%20to%20buy%20Biology%20NCERT" class="btn">Order on WhatsApp</a>
+<a href="#" class="btn checkout">Buy Now</a>
 </div>
+</div>
+
+</div>
+
+<!-- Reviews -->
+<div class="review-section">
+<h2 style="margin-bottom:20px;">⭐ Student Reviews</h2>
+
+<div class="review">
+<b>Rahul Sharma</b><br>
+"Books were in excellent condition. Saved ₹800 easily!"
+</div>
+
+<div class="review">
+<b>Priya Singh</b><br>
+"Organic notes helped me revise faster. Totally worth it!"
+</div>
+
+<div class="review">
+<b>Aman Verma</b><br>
+"Fast delivery & trusted seller. Highly recommend!"
+</div>
+
 </div>
 
 </div>
 
 <footer>
-© 2026 NEET Toppers Store | Contact: 8840001437
+© 2026 NEET Premium Store | Contact: 8840001437
 </footer>
 
+<a href="https://api.whatsapp.com/send?phone=918840001437" class="float">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
+
+<script>
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+</script>
+
 </body>
-</html>
+</html
